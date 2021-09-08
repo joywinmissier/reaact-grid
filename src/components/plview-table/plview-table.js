@@ -33,15 +33,6 @@ export default function PLViewTable(props) {
   const [selectionYear, setSelectionYear] = useState([]);
   const [durationList, setDurationList] = useState([]);
 
-  const [checkboxItems, setCheckboxItems] = useState([
-    { name: 'Year 1', isChecked: true },
-    { name: 'Year 2', isChecked: false },
-    { name: 'Year 3', isChecked: false },
-    { name: 'Year 4', isChecked: false },
-  ])
-
-  const [checked, setChecked] = useState(true);
-
   var duration = 10;
 
   let rowHeader = [];
@@ -52,7 +43,6 @@ export default function PLViewTable(props) {
 
   let durationData = [];
 
-  let selectedYear = [];
 
   useEffect(() => {
     for (var i = 0; i < duration; i++) {
