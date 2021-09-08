@@ -308,11 +308,42 @@
   .checkbox-list{
    
     width: 5rem;
-   
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
+
+
+
+    input[type="checkbox"] {
+      display: none;
+    }
+    input[type="checkbox"] + *::before {
+      content: "";
+      display: inline-block;
+      vertical-align: bottom;
+      width: 0.75rem;
+      height: 0.75rem;
+      margin-right: 0.3rem;
+      border-radius: 10%;
+      border-style: solid;
+      border-width: 0.125rem;
+      border-color: #7500c0;
+      flex-shrink: 0;
+    }
+     input[type="checkbox"]:checked  {
+      color: #ffffff;
+    }
+    input[type="checkbox"]:checked + *::before {
+      content: "✓";
+      color: white;
+      text-align: center;
+      background: #7500c0;
+      border-color: #7500c0;
+      font-style: unset;
+    }
+
+    }
     
   }
-}
+
 
 
   .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
@@ -442,6 +473,11 @@ mat-form-field{
 
 }
 
+.line-color{
+  border-color: RGBA(0,0,0,.12);
+  border-top: none;
+}
+
 .filter-input{
   display: inline-flex;
   justify-content: center;
@@ -449,6 +485,19 @@ mat-form-field{
   align-items: center;
   /* width: 100%; */
   margin-left: 1.5rem;
+
+  .custom-drop{
+    background: #fff 0 0 no-repeat padding-box;
+    color: #000;
+    border-radius: 0;
+    box-shadow: 2px 2px 10px RGB(26 27 31/20%);
+    padding: 0;
+    min-width: 11rem;
+    outline: none;
+    border: none;
+    height: 2.5rem;
+    margin-top: 0.5rem;
+  }
 }
 .label-text{
   color: $black;
@@ -459,6 +508,8 @@ mat-form-field{
   position: relative;
   bottom: 2px;
 }
+
+
 
 .reset-drop{
   mat-icon {
@@ -478,6 +529,11 @@ th:first-child{
   min-width: 65rem;
   padding: 2rem 2rem 2rem 3rem;
   font-size: 1.2rem;
+}
+
+.normal-letter{
+  text-transform: none !important;
+  color: #f44336 !important;
 }
 
 

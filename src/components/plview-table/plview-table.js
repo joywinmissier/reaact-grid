@@ -131,8 +131,10 @@ export default function PLViewTable(props) {
                 headerNameList.map((data, indexs) => {
                   return (
                     <div className="checkbox-list" key={indexs}>
+                      <label>
                       <input type="checkbox" value={data} onChange={handleChange(indexs)} />
                       <span className="label-text"> {data} </span>
+                      </label>
                     </div>
                   )
 
@@ -141,6 +143,35 @@ export default function PLViewTable(props) {
               }
             </div>
           </div>
+        <hr className="line-color"/>
+          <div className="hide-holder horizontal-gap">
+            <div className="hide-filter-text-holder">
+              <p className="hide-show-text">Range</p>
+            </div>
+
+
+            <div>
+              <div className="filter-input">
+                <label className="label-text">Choose Year to Filter by Range</label>
+                <select className="custom-drop">
+                  <option>A</option>
+                </select>
+              </div>
+              <div id="rangeFilter" className="slider-padding">
+                <Button variant="outlined"
+                  className="no-radius"
+                  onClick={handleClick}
+                >ABCD</Button>
+              </div>
+
+            </div>
+          </div>
+
+          <hr className="line-color"/>
+          <div>
+              <Button className="normal-letter" color="secondary">Clear all filters</Button>
+          </div>
+    
         </Menu>
       </React.Fragment>
   }
@@ -241,7 +272,6 @@ export default function PLViewTable(props) {
             })
             }
             {props.lastRow.map((dataItems, index) => {
-              console.log('PP', dataItems);
               return (
                 <tr id="lastRow" key={index}>
                   <td>{dataItems.name}</td>
