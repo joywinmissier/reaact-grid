@@ -1,0 +1,487 @@
+
+@import "./../../styles/variable";
+
+// td, th {
+//     border: 1px solid #dddddd;
+//     text-align: left;
+//     padding: 8px;
+//   }
+  
+//   tr:nth-child(even) {
+//     background-color: #dddddd;
+//   }
+
+  .no-radius{
+      border-radius: 0 !important;
+  }
+
+  .table-container{
+    overflow: auto;
+    width: 100%;
+    width: 95%;
+    margin: 2rem 2rem 0;
+}
+
+.filter-holder{
+    margin: 2rem;
+}
+
+  tr > td:last-of-type {
+    background-color: $secondary-bg-3 ;
+    padding-left: 1rem;
+  }
+  
+  tr:not(:last-child) {
+    cursor: pointer;
+    box-shadow: 0 1px 1px -2px RGB(0 0 0 / 20%), 0 1px 2px 0 RGB(0 0 0 / 14%),
+      0 1px 5px 0 RGB(0 0 0 / 12%);
+    height: 4.75rem;
+    background-color: $white;
+  }
+  .table-container {
+    overflow: auto;
+     width: 100%;
+    width: 95%;
+    margin: 2rem 2rem 0 2rem;
+  }
+  td,
+  th {
+    /* border: 1px solid #000; */
+  }
+  
+  table {
+    table-layout: fixed;
+    width: 100%;
+  }
+.sticky-first {
+  td:first-child,
+  th:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background-color: $white;
+    box-shadow: 0 1px 1px -2px RGB(0 0 0 / 20%), 0 1px 2px 0 RGB(0 0 0 / 14%),
+      0 1px 5px 0 RGB(0 0 0 / 12%);
+    width: 250px;
+  }
+}
+
+.non-sticky{
+  td:first-child,
+  th:first-child {
+  width: 250px;
+  }
+}
+
+.sticky-last {
+  //css for freezing total column while scrolling
+  td:last-child{
+    position: sticky;
+    right: 0;
+    z-index: 2;
+    // background-color: $primary-bg-4;
+    box-shadow: 0 1px 1px -2px RGB(0 0 0 / 20%), 0 1px 2px 0 RGB(0 0 0 / 14%),
+    0 1px 5px 0 RGB(0 0 0 / 12%);
+    width: 250px;
+  }
+  th:last-child {
+    position: sticky;
+    right: 0;
+    z-index: 2;
+    background-color: $primary-bg-4;
+    box-shadow: 0 1px 1px -2px RGB(0 0 0 / 20%), 0 1px 2px 0 RGB(0 0 0 / 14%),
+    0 1px 5px 0 RGB(0 0 0 / 12%);
+    width: 250px;
+  }
+}
+  th:last-child {
+    padding-left: 1rem;
+  }
+  thead tr th {
+    position: sticky;
+    top: 0;
+  }
+  /* th:first-child, th:last-child {z-index:2;background-color:red;} */
+  
+ tr:last-child {
+    background-color: $secondary-bg-3;
+    height: 4.75rem;
+     td {
+      background-color: $secondary-bg-3 ;
+      font-weight: 600;
+  
+      font-size: 1.2rem ;
+    }
+    td:last-child {
+      background-color: $primary-bg-2 ;
+      color: $white;
+      font-weight: 600;
+  
+      font-size: 1.2rem ;
+      padding-left: 1rem;
+    }
+  }
+  
+  .header-align {
+    text-align: left;
+    background: $primary-bg-4 ;
+    color: $white;
+    height: 3.75rem;
+  }
+
+  #lastRow td:first-child{
+    background-color: $secondary-bg-3;
+  }
+
+  #head-item .category-design {
+    background: $primary-bg-4;
+    padding: 1rem;
+  }
+  
+  .more-less-icon {
+    color: $primary-bg-1;
+  }
+  
+  // .gap-text {
+  //   padding-left: 1.8rem ;
+  // }
+  // .sub-gap-text {
+  //   padding-left: 2.8rem ;
+  //   background-color: #e6e6dc ;
+  // }
+  // .subchild-text {
+  //   background-color: #e6e6dc ;
+  // }
+  
+  #recursiveContainer .sub-items-holder {
+    background-color: $secondary-bg-2;
+  }
+  
+  .table-size {
+    width: 100%;
+    position: relative;
+  }
+  
+  .row-text-design {
+    td {
+      color: $black;
+      font-size: 1.08rem;
+      font-weight: 400;
+    }
+    th {
+      font-size: 1.08rem;
+      font-weight: 600;
+    }
+    th:not(:first-child) {
+      width: 150px;
+    }
+    td:not(:first-child) {
+      width: 150px;
+    }
+  
+    // td:first-child{
+    //   padding: 1rem;
+    // }
+  }
+  
+  th:nth-child(2) {
+    padding-left: 1.2rem;
+  }
+  td:nth-child(2) {
+    padding-left: 1.2rem;
+  }
+  
+  tr {
+    td:first-child {
+      padding: 1rem;
+    }
+  
+    td:last-child {
+      font-weight: 400;
+    }
+  }
+
+  .close{
+    font-style: normal;
+    // margin-left: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+
+
+
+  #head-item {
+
+    .hide {
+      display: none;
+      cursor: pointer;
+      font-style: normal;
+      margin-left: 10px;
+    }
+
+    .sort-icon{
+      display: inline-block;
+      width: 5rem;
+      height: 0.75rem;
+    }
+    
+    .sort-icon:hover > .hide {
+      display: block;
+      cursor: pointer;
+    }
+  }
+
+
+  #recursiveContainer{
+    .data-edit:hover > .edit-icon{
+      display: inline-block;
+    }
+
+    .edit-icon{
+      display: none;
+      color: $primary-bg-2;
+    }
+  }
+
+  .save-icon{
+    color: #09cc09;
+  }
+
+  .close-icon{
+    color: #be0101;
+  }
+
+  .icon-design{
+    font-size: 16px;
+    position: relative;
+    top: 2px;
+    cursor: pointer;
+  }
+  th#resizeHeader:hover  {
+  
+    background-color: $primary-bg-4;
+  
+}
+  th:hover {
+    .hide{
+      display: block;
+      cursor: pointer;
+    }
+  }
+
+  .data-edit mat-form-field{
+    width: 100px;
+  }
+
+ .mat-form-field-disabled .mat-form-field-underline {
+    display: none;
+}
+
+.mat-input-element:disabled, .mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after{
+  color: $black;
+}
+
+.header-stick{
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.table-height{
+  height: 350px;
+}
+
+.edit-hover:hover{
+
+  border: 1px solid $primary-bg-2;
+ 
+}
+
+.filter-boxes{
+  display: flex;
+  // justify-content: space-between;
+  margin: 1rem;
+  flex-wrap: wrap;
+  .mat-checkbox-frame {
+    border-color: $primary-bg-2;
+  }
+  .checkbox-list{
+   
+    width: 5rem;
+   
+    padding-bottom: 1rem;
+    
+  }
+}
+
+
+  .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+    opacity: 0.03;
+    background-color: $primary-bg-2;
+  }
+  
+   .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: $primary-bg-2;
+  }
+
+
+.filter-holder{
+  margin: 2rem;
+
+  .filter-button{
+    border-radius: 0;
+  }
+  
+  .filter-icon{
+    color: $primary-bg-2;
+    font-size: 22px;
+    margin-left: 0.75rem;
+  }
+
+}
+
+ .mat-menu-panel.filter-menu-layout {
+    // max-width: 300px !important;
+    max-width: 33rem;
+    border-radius: 0;
+
+}
+
+.move-checkbox{
+  margin-left: 1rem;
+}
+
+.hide-holder{
+  display: flex;
+  // justify-content: space-between;
+
+  .hide-filter-text-holder{
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+    min-width: 8rem;
+    justify-content: center;
+    border-right: 1px solid rgba(0,0,0,.12);
+
+    .hide-show-text{
+      font-weight: 400;
+      color: $grey-1;
+    }
+  }
+}
+
+.horizontal-gap{
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.slider-padding{
+  margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  .slider-gap{
+    margin-left: 1rem;
+  }
+}
+
+#rangeFilter .range-button{
+  border-radius: 0;
+  min-width: 5rem;
+  width: 8rem;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.filtered-button{
+  background-color: $primary-bg-2;
+  color: $white;
+}
+
+.panel-title{
+  font-size: 1rem;
+  color: $black;
+  font-weight: 500;
+}
+
+.title-container{
+  padding: 0rem 1rem 0 1rem;
+  border-bottom: 4px solid $primary-bg-3;
+}
+
+.input_type_wrap {
+  
+.mat-form-field-flex {
+  background: $white 0 0 no-repeat padding-box;
+  color: $black;
+  border-radius: 0;
+  box-shadow: 0 1px 5px RGB(158 164 186 / 20%);
+  padding: 0;
+}
+
+.mat-form-field-infix{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.mat-form-field-underline {
+  display: none;
+}
+
+.mat-select-value{
+  padding-left: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.mat-select-arrow{
+  margin-bottom: 0.5rem !important;
+}
+
+mat-form-field{
+  width: 150px !important;
+}
+
+}
+
+.filter-input{
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  /* width: 100%; */
+  margin-left: 1.5rem;
+}
+.label-text{
+  color: $black;
+  font-weight: 500;
+  
+  font-size: 13px;
+  display: inline-block;
+  position: relative;
+  bottom: 2px;
+}
+
+.reset-drop{
+  mat-icon {
+    margin-bottom: 3px;
+  }
+}
+
+th:first-child{
+  .wrapper .bar{
+    margin-right: -16px;
+  }
+}
+
+.no-data{
+  display: flex;
+  justify-content: center;
+  min-width: 65rem;
+  padding: 2rem 2rem 2rem 3rem;
+  font-size: 1.2rem;
+}
+
+
+
+
+
+
