@@ -11,6 +11,8 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { DataContext } from '../../context/DataContext';
 
+import TableRow from '../table-row/table-row';
+
 const useStyles = makeStyles((theme) => {
   return createStyles({
     menuRoot: {
@@ -33,12 +35,7 @@ export default function PLViewTable(props) {
   const [selectionYear, setSelectionYear] = useState([]);
   const [durationList, setDurationList] = useState([]);
 
-  const [checkboxItems, setCheckboxItems] = useState([
-    { name: 'Year 1', isChecked: true },
-    { name: 'Year 2', isChecked: false },
-    { name: 'Year 3', isChecked: false },
-    { name: 'Year 4', isChecked: false },
-  ])
+  const [gapIndexValue, setgapIndexValue] = useState(1)
 
   const [checked, setChecked] = useState(true);
 
@@ -63,6 +60,8 @@ export default function PLViewTable(props) {
     setHeaderNameList(rowHeader);
     setBindYearsList(sampleRow);
     setDurationList(durationData);
+    manipulateData(items);
+    console.log(items);
   }, [])
 
 
@@ -132,8 +131,8 @@ export default function PLViewTable(props) {
                   return (
                     <div className="checkbox-list" key={indexs}>
                       <label>
-                      <input type="checkbox" value={data} onChange={handleChange(indexs)} />
-                      <span className="label-text"> {data} </span>
+                        <input type="checkbox" value={data} onChange={handleChange(indexs)} />
+                        <span className="label-text"> {data} </span>
                       </label>
                     </div>
                   )
@@ -143,7 +142,7 @@ export default function PLViewTable(props) {
               }
             </div>
           </div>
-        <hr className="line-color"/>
+          <hr className="line-color" />
           <div className="hide-holder horizontal-gap">
             <div className="hide-filter-text-holder">
               <p className="hide-show-text">Range</p>
@@ -167,11 +166,11 @@ export default function PLViewTable(props) {
             </div>
           </div>
 
-          <hr className="line-color"/>
+          <hr className="line-color" />
           <div>
-              <Button className="normal-letter" color="secondary">Clear all filters</Button>
+            <Button className="normal-letter" color="secondary">Clear all filters</Button>
           </div>
-    
+
         </Menu>
       </React.Fragment>
   }
@@ -231,6 +230,36 @@ export default function PLViewTable(props) {
   }
 
 
+    //method to add "expansion" boolean to determine open/close of expansion panel
+   const  manipulateData = (listOfItems, start = 1, oldList = []) => {
+      listOfItems.map(items => {
+        items['expansion'] = false;
+        items['checked'] = false;
+        items['index'] = start;
+        start == 1 ? items['isParent'] = true : items['isParent'] = false;
+        start == 1 ? items['id'] = items['name'].charAt(0) + start : items['id'] = oldList['name'].charAt(0) + start;
+  
+        start != 1 ? items['parentName'] = oldList['name'] : items['parentName'] = '';
+        start != 1 ? items['parentId'] = oldList['id'] : items['parentId'] = '';
+  
+        if(!items.hasOwnProperty('subitems')){
+          items['hasChild']= false
+        }
+        //items.hasOwnProperty('subitems') == false ? items['hasChild']= false : '';
+        if (items.hasOwnProperty('subitems')) {
+          let countIndex;
+          countIndex = start + 1;
+          items['subitems'].length>0 ? items['hasChild'] = true: items['hasChild']= false;
+          if(items['subitems'].length > 0){
+            manipulateData(items['subitems'], countIndex, items)
+          }
+          // items['subitems'].length > 0 ? manipulateData(items['subitems'], countIndex, items) : '';
+        }
+      });
+    }
+
+
+
 
   return (
 
@@ -255,22 +284,17 @@ export default function PLViewTable(props) {
             <th>Total</th>
           </thead>
           <tbody>
-            {items.map((listValue, index) => {
-              return (
-                <tr key={index}>
-                  <td>{listValue.name}</td>
-                  {durationList.map((items, durationIndex) => {
-                    return (
-                      !selectionYear.includes(bindYearsList[durationIndex]) ? <td key={durationIndex}>{listValue['y' + items]}</td> : ''
-                    )
+            <React.Fragment>
 
-                  })}
+              <TableRow
+                items={items}
+                gapIndex = { gapIndexValue }
+                durationList={durationList}
+                selectionYear={selectionYear}
+                bindYearsList={bindYearsList}
+              />
+            </React.Fragment>
 
-                  <td>{listValue.total}</td>
-                </tr>
-              );
-            })
-            }
             {props.lastRow.map((dataItems, index) => {
               return (
                 <tr id="lastRow" key={index}>
