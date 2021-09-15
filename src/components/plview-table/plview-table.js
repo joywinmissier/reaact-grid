@@ -35,9 +35,9 @@ export default function PLViewTable(props) {
   const [selectionYear, setSelectionYear] = useState([]);
   const [durationList, setDurationList] = useState([]);
 
-  const [gapIndexValue, setgapIndexValue] = useState(1)
+  const [gapIndexValue, setgapIndexValue] = useState(1);
 
-  const [checked, setChecked] = useState(true);
+  const [itemExample, setitemExample] = useState(props.tableItems);
 
   var duration = 10;
 
@@ -52,6 +52,7 @@ export default function PLViewTable(props) {
   let selectedYear = [];
 
   useEffect(() => {
+    manipulateData(items);
     for (var i = 0; i < duration; i++) {
       sampleRow.push('y' + (i + 1));
       rowHeader.push(headerName + ' ' + (i + 1));
@@ -60,10 +61,29 @@ export default function PLViewTable(props) {
     setHeaderNameList(rowHeader);
     setBindYearsList(sampleRow);
     setDurationList(durationData);
-    manipulateData(items);
+   
     console.log(items);
   }, [])
 
+
+  const recursiveCheck = (listOfData) =>{
+
+  }
+  
+   const expandRow = (item, ind)  => {
+     console.log("I", item)
+    if (item?.subitems?.length > 0) {
+      item.expansion = !item.expansion;
+    }
+    let someValue = [...itemExample];
+ 
+    someValue[ind] = item;
+    console.log(someValue);
+    setitemExample([...itemExample]);
+    
+    console.log('Click', itemExample);
+    //event.preventDefault();
+  }
 
   const classes = useStyles();
 
@@ -287,11 +307,12 @@ export default function PLViewTable(props) {
             <React.Fragment>
 
               <TableRow
-                items={items}
+                items={itemExample}
                 gapIndex = { gapIndexValue }
                 durationList={durationList}
                 selectionYear={selectionYear}
                 bindYearsList={bindYearsList}
+                expandRow = {expandRow}
               />
             </React.Fragment>
 
