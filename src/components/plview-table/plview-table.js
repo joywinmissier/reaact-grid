@@ -196,9 +196,11 @@ export default function PLViewTable(props) {
   }
 
   const useSortableData = (items, config = null) => {
+    console.log('Initial');
     const [sortConfig, setSortConfig] = React.useState(config);
 
     const sortedItems = React.useMemo(() => {
+      console.log('Memo');
       let sortableItems = [...items];
       if (sortConfig !== null) {
         sortableItems.sort((a, b) => {
@@ -299,7 +301,7 @@ export default function PLViewTable(props) {
                 !selectionYear.includes(bindYearsList[index]) ? <th key={index} onClick={() => requestSort('y' + durationList[index])}>{listItems}
                   {(sortConfig !== null && sortConfig.direction !== ''
                     && sortConfig.key == 'y' + durationList[index]) ?
-                    <span onClick={(e) => { sortRequestCancel(null); e.stopPropagation(); }}>x</span> : ''}</th> : '')
+                    <span className = "gap-close" onClick={(e) => { sortRequestCancel(null); e.stopPropagation(); }}>x</span> : ''}</th> : '')
             })}
             <th>Total</th>
           </thead>
@@ -307,7 +309,7 @@ export default function PLViewTable(props) {
             <React.Fragment>
 
               <TableRow
-                items={itemExample}
+                items={items}
                 gapIndex = { gapIndexValue }
                 durationList={durationList}
                 selectionYear={selectionYear}

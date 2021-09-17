@@ -16,7 +16,13 @@ const TableRow = (props) => {
                 return (
                     <React.Fragment>
                         <tr key={index} onClick={() => props.expandRow(listValue, index)} >
-                            <td style={{ paddingLeft: props.gapIndex * 20 + 'px' }}>{listValue.name} </td>
+                            <td style={{ paddingLeft: props.gapIndex * 20 + 'px' }}>
+                                {
+                                    listValue?.subitems?.length > 0 ? <span className="more-less-icon">
+                                    { listValue.expansion ? '⚊' : '✚'}
+                                </span> : ''
+                                }
+                                {listValue.name} </td>
                             {props.durationList.map((items, durationIndex) => {
                                 return (
                                     !props.selectionYear.includes(props.bindYearsList[durationIndex]) ? <td key={durationIndex}>{listValue['y' + items]}</td> : ''
